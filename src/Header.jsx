@@ -1,94 +1,98 @@
 import React from 'react';
-import 'font-awesome/css/font-awesome.min.css';
+import { motion } from 'framer-motion';
 
 const Header = () => {
   return (
-    <header className="bg-gray-900 text-white py-5 sticky top-0 z-50">
+    <header className="bg-gray-900 text-white py-5 sticky top-0 z-50 shadow-md">
       <div className="max-w-6xl mx-auto flex justify-between items-center px-5">
-        
         {/* Logo Section */}
         <div className="flex items-center">
-          <img 
+          <img
             src="/path/to/your/profile-image.jpg" // Replace with your image path
-            alt="Profile" 
+            alt="Profile"
             className="w-12 h-12 rounded-full mr-3"
           />
-          <h1 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:animate-pulse transition-all duration-300 tracking-wide">
-            <span className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-yellow-400 to-red-500 hover:animate-bounce">
+          <div>
+            <h1 className="text-3xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
               ROHAN
-            </span> 
-            <span className="text-xl md:text-2xl font-medium text-white">
-              Developer
-            </span>
-          </h1>
+            </h1>
+            <motion.div
+              className="text-xl md:text-2xl font-medium text-yellow-400"
+              animate={{
+                opacity: [0, 1],
+                y: [-10, 0],
+                transition: { duration: 0.8, delay: 0.5 },
+              }}
+            >
+              <span className="inline-block">Frontend Developer</span>
+              <motion.span
+                className="ml-2 text-pink-400"
+                animate={{
+                  opacity: [0, 1, 0],
+                  transition: { duration: 2, repeat: Infinity },
+                }}
+              >
+                | React.js Expert
+              </motion.span>
+            </motion.div>
+          </div>
         </div>
 
         {/* Navigation Bar */}
         <nav>
           <ul className="hidden md:flex space-x-8">
             <li>
-              <a 
-                href="#home" 
-                className="text-lg flex items-center space-x-2 hover:text-yellow-400 transition-colors duration-300 transform hover:scale-110"
+              <a
+                href="#home"
+                className="text-lg hover:text-yellow-400 transition duration-300"
               >
-                <i className="fas fa-home"></i> {/* Home Icon */}
-                <span>Home</span>
+                Home
               </a>
             </li>
             <li>
-              <a 
-                href="#about" 
-                className="text-lg flex items-center space-x-2 hover:text-yellow-400 transition-colors duration-300 transform hover:scale-110"
+              <a
+                href="#about"
+                className="text-lg hover:text-yellow-400 transition duration-300"
               >
-                <i className="fas fa-user"></i> {/* About Icon */}
-                <span>About</span>
+                About
               </a>
             </li>
             <li>
-              <a 
-                href="#projects" // This will scroll to the Projects section
-                className="text-lg flex items-center space-x-2 hover:text-yellow-400 transition-colors duration-300 transform hover:scale-110"
+              <a
+                href="#projects"
+                className="text-lg hover:text-yellow-400 transition duration-300"
               >
-                <i className="fas fa-briefcase"></i> {/* Projects Icon */}
-                <span>Projects</span>
+                Projects
               </a>
             </li>
             <li>
-              <a 
-                href="#contact" // This will scroll to the Contact section
-                className="text-lg flex items-center space-x-2 hover:text-yellow-400 transition-colors duration-300 transform hover:scale-110"
+              <a
+                href="#contact"
+                className="text-lg hover:text-yellow-400 transition duration-300"
               >
-                <i className="fas fa-envelope"></i> {/* Contact Icon */}
-                <span>Contact</span>
+                Contact
               </a>
             </li>
           </ul>
-
-          {/* Mobile Hamburger Menu (visible on small screens) */}
-          <div className="md:hidden">
-            <button className="text-white text-2xl">
-              <i className="fas fa-bars"></i> {/* Hamburger Icon */}
-            </button>
-          </div>
         </nav>
 
         {/* Social Media Icons */}
         <div className="flex items-center space-x-6">
-          <a 
-            href="https://github.com/pawarrohan9302" // Replace with your GitHub URL
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-white text-2xl hover:text-yellow-400 transition-colors duration-300"
+          <a
+            href="https://github.com/pawarrohan9302"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl hover:text-yellow-400 transition"
           >
-            <i className="fab fa-github"></i> {/* GitHub Icon */}
+            <i className="fab fa-github"></i>
           </a>
-          <a 
-            href="https://www.linkedin.com/in/rohan-pawar-62139b294/" // Replace with your LinkedIn URL
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-white text-2xl hover:text-yellow-400 transition-colors duration-300"
+          <a
+            href="https://www.linkedin.com/in/rohan-pawar-62139b294/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl hover:text-yellow-400 transition"
           >
-            <i className="fab fa-linkedin"></i> {/* LinkedIn Icon */}
+            <i className="fab fa-linkedin"></i>
           </a>
         </div>
       </div>
