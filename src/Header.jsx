@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaHome, FaUserAlt, FaProjectDiagram, FaPhoneAlt } from "react-icons/fa"; // Import icons from react-icons
 
 const Header = () => {
   return (
@@ -46,16 +47,22 @@ const Header = () => {
         {/* Navigation Bar */}
         <nav>
           <ul className="hidden md:flex space-x-8">
-            {["Home", "About", "Projects", "Contact"].map((item, index) => (
+            {[
+              { name: "Home", icon: <FaHome className="inline-block mr-2" /> },
+              { name: "About", icon: <FaUserAlt className="inline-block mr-2" /> },
+              { name: "Projects", icon: <FaProjectDiagram className="inline-block mr-2" /> },
+              { name: "Contact", icon: <FaPhoneAlt className="inline-block mr-2" /> },
+            ].map((item, index) => (
               <li key={index}>
                 <motion.a
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${item.name.toLowerCase()}`}
                   className="text-lg font-medium text-white hover:text-yellow-400 relative group"
                   whileHover={{
                     scale: 1.1,
                   }}
                 >
-                  {item}
+                  {item.icon}
+                  <span>{item.name}</span>
                   <span className="block w-0 h-1 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
                 </motion.a>
               </li>

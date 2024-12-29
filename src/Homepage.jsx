@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "font-awesome/css/font-awesome.min.css"; // Import FontAwesome for icons
 
 const HomePage = () => {
+  const [selectedSkill, setSelectedSkill] = useState(null); // State to manage clicked skill
+
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -15,6 +18,10 @@ const HomePage = () => {
     autoplaySpeed: 3000,
     responsive: [
       {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 },
+      },
+      {
         breakpoint: 768,
         settings: { slidesToShow: 1 },
       },
@@ -24,15 +31,18 @@ const HomePage = () => {
   const skills = [
     {
       name: "HTML",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg", // Replace with your HTML logo URL
+      logo: "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
+      icon: "fa-brands fa-html5", // FontAwesome 6 icon for HTML
     },
     {
       name: "CSS",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg", // Replace with your CSS logo URL
+      logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
+      icon: "fa-brands fa-css3-alt", // FontAwesome 6 icon for CSS
     },
     {
       name: "JavaScript",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png", // Replace with your JavaScript logo URL
+      logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+      icon: "fa-brands fa-js", // FontAwesome 6 icon for JavaScript
     },
   ];
 
@@ -40,7 +50,7 @@ const HomePage = () => {
     {
       title: "E-Commerce App",
       description: "A full-stack app for online shopping.",
-      image: "https://your-image-url.com/project-1.jpg", // Replace with your image
+      image: "https://your-image-url.com/project-1.jpg",
     },
     {
       title: "Portfolio Website",
@@ -65,7 +75,8 @@ const HomePage = () => {
       <div
         className="relative w-full h-screen bg-cover bg-center flex flex-col justify-center items-center"
         style={{
-          backgroundImage: "url('src/assets/9e1c9a02-2065-41b6-8cd1-e2875092330b.jpg')", // Replace with your hero image
+          backgroundImage:
+            "url('src/assets/9e1c9a02-2065-41b6-8cd1-e2875092330b.jpg')", // Replace with your hero image
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -108,19 +119,107 @@ const HomePage = () => {
           {skills.map((skill, index) => (
             <motion.div
               key={index}
-              className="bg-gray-700 flex flex-col items-center py-6 px-4 rounded-lg shadow-lg hover:shadow-xl"
+              className="bg-gray-700 flex flex-col items-center py-6 px-4 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform"
               whileHover={{ scale: 1.1 }}
+              onClick={() => setSelectedSkill(skill.name)} // Set selected skill on click
+              whileTap={{ scale: 0.95 }} // Add tap interaction (shrink effect on touch)
             >
-              <img
-                src={skill.logo}
-                alt={`${skill.name} logo`}
-                className="w-20 h-20 object-contain mb-4"
-              />
-              <h3 className="text-xl font-bold text-yellow-400">
+              <div className="mb-4">
+                <motion.i
+                  className={`${skill.icon} text-7xl`} // FontAwesome 6 icons (larger)
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  whileHover={{
+                    scale: 1.2,
+                    color: "#FFD700", // Change color on hover
+                  }}
+                  whileTap={{
+                    scale: 0.9, // Shrink icon when clicked (on mobile)
+                    color: "#FF6347", // Color change when clicked
+                  }}
+                />
+              </div>
+              <motion.h3
+                className="text-xl font-bold text-yellow-400"
+                animate={{
+                  fontSize: selectedSkill === skill.name ? "1.25rem" : "1rem", // Increase font size on click
+                  color: selectedSkill === skill.name ? "#FFD700" : "#FF6347", // Change text color on click
+                }}
+                transition={{ duration: 0.3 }}
+              >
                 {skill.name}
-              </h3>
+              </motion.h3>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 bg-gray-800">
+        <h2 className="text-center text-4xl font-bold text-yellow-400 mb-10">
+          My Services
+        </h2>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 px-5">
+          {/* Web Development */}
+          <motion.div
+            className="bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="flex justify-center mb-4">
+              <motion.i
+                className="fa fa-code text-5xl text-yellow-400"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ scale: 1.2 }}
+              />
+            </div>
+            <h3 className="text-xl font-bold text-yellow-400">Web Development</h3>
+            <p className="text-gray-400 mt-2">
+              I create fast and responsive websites with modern technologies.
+            </p>
+          </motion.div>
+
+          {/* App Development */}
+          <motion.div
+            className="bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="flex justify-center mb-4">
+              <motion.i
+                className="fa fa-mobile-alt text-5xl text-yellow-400"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ scale: 1.2 }}
+              />
+            </div>
+            <h3 className="text-xl font-bold text-yellow-400">App Development</h3>
+            <p className="text-gray-400 mt-2">
+              Building mobile applications that are user-friendly and intuitive.
+            </p>
+          </motion.div>
+
+          {/* UI/UX Design */}
+          <motion.div
+            className="bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="flex justify-center mb-4">
+              <motion.i
+                className="fa fa-paint-brush text-5xl text-yellow-400"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ scale: 1.2 }}
+              />
+            </div>
+            <h3 className="text-xl font-bold text-yellow-400">UI/UX Design</h3>
+            <p className="text-gray-400 mt-2">
+              Designing interfaces that enhance user experience and engagement.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -167,7 +266,7 @@ const HomePage = () => {
         </p>
         <motion.a
           href="#contact"
-          className="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-bold shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+          className="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-bold shadow-lg hover:shadow-xl transition-transform transform hover:scale-105 hover:bg-yellow-400"
           whileHover={{ scale: 1.2 }}
         >
           Get in Touch
