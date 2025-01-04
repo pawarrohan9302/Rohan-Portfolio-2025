@@ -87,7 +87,7 @@ const HomePage = () => {
             className="text-6xl sm:text-7xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 font-[Poppins]"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.1 }}
             whileHover={{ scale: 1.1 }}
           >
             ROHAN
@@ -96,7 +96,7 @@ const HomePage = () => {
             className="text-2xl sm:text-3xl font-semibold text-yellow-400 italic mt-4 mb-8 font-[Poppins]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 1, delay: 0.1 }}
           >
             "Designing Digital Success Stories"
           </motion.h2>
@@ -129,7 +129,7 @@ const HomePage = () => {
                   className={`${skill.icon} text-7xl`} // FontAwesome 6 icons (larger)
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
+                  transition={{ delay: 0.1 }}
                   whileHover={{
                     scale: 1.2,
                     color: "#FFD700", // Change color on hover
@@ -241,6 +241,7 @@ const HomePage = () => {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-64 object-cover"
+                    loading="lazy" // Lazy loading images
                   />
                   <div className="p-4">
                     <h3 className="text-2xl font-bold text-yellow-400">

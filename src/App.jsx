@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './Header'
 import HomePage from './Homepage'
+import { Outlet } from 'react-router-dom'
 
 function App() {
 
@@ -11,7 +12,6 @@ function App() {
     <div>
       <Header />
       <HomePage />
-
     </div>
 
   )
