@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "font-awesome/css/font-awesome.min.css"; // Import FontAwesome for icons
 
-const HomePage = () => {
+const Homepage = () => {
   const [selectedSkill, setSelectedSkill] = useState(null); // State to manage clicked skill
 
   const sliderSettings = {
@@ -276,4 +276,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Homepage;

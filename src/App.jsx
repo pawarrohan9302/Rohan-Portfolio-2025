@@ -2,10 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./Header";
 import 'prismjs/themes/prism.css';
-import HomePage from "./HomePage";
+import HomePage from "./HomePage"; //
 import ProjectPage from "./ProjectPage";
 import AboutPage from "./AboutPage";
 import Contactpage from "./Contactpage";
+import Homepage from "./HomePage";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Homepage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/projects" element={<ProjectPage />} />
           <Route path="/contact" element={<Contactpage />} />
