@@ -236,18 +236,17 @@ const HomePage = () => {
                 className="p-4"
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="relative bg-gray-700 rounded-lg shadow-lg overflow-hidden hover:shadow-xl">
+                <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-64 object-cover"
-                    loading="lazy" // Lazy loading images
                   />
                   <div className="p-4">
-                    <h3 className="text-2xl font-bold text-yellow-400">
+                    <h3 className="text-xl font-semibold text-yellow-400">
                       {project.title}
                     </h3>
-                    <p className="text-gray-400 mt-2">{project.description}</p>
+                    <p className="text-gray-300 mt-2">{project.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -256,22 +255,22 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-green-400 to-blue-500 text-center">
-        <h2 className="text-4xl font-bold text-white mb-4">
-          Let’s Work Together!
+      {/* Contact Section */}
+      <section id="contact" className="py-16 bg-gray-800">
+        <h2 className="text-center text-4xl font-bold text-yellow-400 mb-10">
+          Contact Me
         </h2>
-        <p className="text-lg text-gray-100 mb-6">
-          Interested in collaborating or have a project in mind? Let’s create
-          something amazing together.
-        </p>
-        <motion.a
-          href="#contact"
-          className="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-bold shadow-lg hover:shadow-xl transition-transform transform hover:scale-105 hover:bg-yellow-400"
-          whileHover={{ scale: 1.2 }}
-        >
-          Get in Touch
-        </motion.a>
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-xl text-gray-300 mb-6">
+            Interested in collaborating or just want to chat? Reach out!
+          </p>
+          <a
+            href="mailto:rohan@example.com"
+            className="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg text-lg font-bold shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+          >
+            Email Me
+          </a>
+        </div>
       </section>
     </div>
   );
