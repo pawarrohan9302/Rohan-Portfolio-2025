@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProjectPage = () => {
+const Projectpage = () => {
     const projects = [
         { title: "Project 1", description: "Description of project 1", link: "/project1" },
         { title: "Project 2", description: "Description of project 2", link: "/project2" },
@@ -26,4 +26,4 @@ const ProjectPage = () => {
     );
 };
 
-export default ProjectPage;
+export default Projectpage;

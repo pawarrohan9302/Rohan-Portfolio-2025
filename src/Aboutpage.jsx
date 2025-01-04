@@ -2,7 +2,7 @@ import React from 'react';
 // Importing icons
 import { FaGraduationCap, FaBriefcase, FaCode, FaPython, FaChartLine, FaHtml5, FaCss3Alt, FaJsSquare, FaReact } from 'react-icons/fa';
 
-const AboutPage = () => {
+const Aboutpage = () => {
     return (
         <div className="min-h-screen bg-gradient-to-r from-blue-900 via-purple-800 to-pink-600 text-white p-8">
             <div className="max-w-4xl mx-auto bg-black bg-opacity-70 rounded-lg p-10 shadow-xl">
@@ -179,4 +179,4 @@ const AboutPage = () => {
     );
 };
 
-export default AboutPage;
+export default Aboutpage;
