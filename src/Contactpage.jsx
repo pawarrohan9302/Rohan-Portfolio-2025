@@ -1,10 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import emailjs from 'emailjs-com';
+import Prism from 'prismjs';
 import { FaLinkedin, FaGithub, FaWhatsapp, FaInstagram } from "react-icons/fa";
+import 'prismjs/themes/prism.css';
 
-const ContactPage = () => {
+const Contactpage = () => {
     const formRef = useRef(null);
     const messageRef = useRef(null);
+
+    useEffect(() => {
+        Prism.highlightAll();
+    }, []);
 
     const handleEmailKeyDown = (e) => {
         if (e.key === 'Enter') {
@@ -68,11 +74,9 @@ const ContactPage = () => {
                     </a>
                 </div>
             </form>
-            <div className="fixed bottom-4 right-4 bg-yellow-500 text-gray-900 p-4 rounded-full cursor-pointer hover:bg-yellow-600 transition duration-300">
-                Tooltip Example
-            </div>
+
         </div>
     );
 };
 
-export default ContactPage;
+export default Contactpage;
