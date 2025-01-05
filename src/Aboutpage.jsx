@@ -83,7 +83,7 @@ const Aboutpage = () => {
                                 y="160"
                                 width="40"
                                 height="60"
-                                href="src/assets/f26aab15-0aed-4b3c-88e4-09512bcf5ef8.jpg"
+                                href="public/rohan1.jpg"
                                 className="rounded-full"
                             />
                             <text x="200" y="230" fill="yellow" fontSize="18" textAnchor="middle">
