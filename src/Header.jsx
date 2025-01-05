@@ -11,7 +11,7 @@ const Header = () => {
         {/* Logo Section */}
         <div className="flex items-center space-x-4">
           <motion.img
-            src="src/assets/rohan1.jpg" // Replace with your logo image URL
+            src="public/rohan1.jpg" // Replace with your logo image URL
             alt="ROHAN Logo"
             className="w-120 h-24 rounded-full shadow-lg"
             initial={{ opacity: 0 }}
