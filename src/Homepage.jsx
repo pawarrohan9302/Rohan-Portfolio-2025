@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "font-awesome/css/font-awesome.min.css"; // FontAwesome for icons
 
 const Homepage = () => {
-  const [selectedSkill, setSelectedSkill] = useState(null); // State to manage clicked skill
+  const [selectedSkill, setSelectedSkill] = useState(null);
 
   // Skills data
   const skills = [
@@ -30,7 +30,7 @@ const Homepage = () => {
       <div
         className="relative w-full h-screen bg-cover bg-center flex flex-col justify-center items-center"
         style={{
-          backgroundImage: "url('src/assets/rohan2.jpg')", // Update to point to public folder
+          backgroundImage: "url('src/assets/rohan2.jpg')", // Change to correct path if needed
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -64,12 +64,9 @@ const Homepage = () => {
         </div>
       </div>
 
-
       {/* Skills Section */}
       <section className="py-16 bg-gray-800">
-        <h2 className="text-center text-4xl font-bold text-teal-400 mb-10">
-          My Skills
-        </h2>
+        <h2 className="text-center text-4xl font-bold text-teal-400 mb-10">My Skills</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 px-5">
           {skills.map((skill, index) => (
             <motion.div
@@ -110,9 +107,7 @@ const Homepage = () => {
 
       {/* Contact Section */}
       <section id="contact" className="py-16 bg-gray-800">
-        <h2 className="text-center text-4xl font-bold text-teal-400 mb-10">
-          Contact Me
-        </h2>
+        <h2 className="text-center text-4xl font-bold text-teal-400 mb-10">Contact Me</h2>
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xl text-gray-300 mb-6">
             Interested in collaborating or just want to chat? Reach out!

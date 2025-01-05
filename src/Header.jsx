@@ -11,7 +11,7 @@ const Header = () => {
         {/* Logo Section */}
         <div className="flex items-center space-x-4">
           <motion.img
-            src="src/assets/rohan1.jpg" // Replace with your logo image URL
+            src="src/assets/rohan1.jpg" // Ensure the image path is correct
             alt="ROHAN Logo"
             className="w-120 h-24 rounded-full shadow-lg"
             initial={{ opacity: 0 }}
@@ -38,7 +38,7 @@ const Header = () => {
                 <span
                   className="text-white text-6xl font-semibold tracking-wider"
                   style={{
-                    textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5)",
+                    textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5)"
                   }}
                 >
                   {text}

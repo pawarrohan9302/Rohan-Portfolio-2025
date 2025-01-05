@@ -7,7 +7,6 @@ const Aboutpage = () => {
     const pageRef = useRef();
 
     const handleDownloadResume = () => {
-        // This triggers the download of the content inside the pageRef as a PDF
         const element = pageRef.current;
         html2pdf()
             .from(element)
@@ -40,7 +39,7 @@ const Aboutpage = () => {
                     </div>
                 </div>
 
-                {/* Education Section: Seva Sadan */}
+                {/* Education Section */}
                 <div className="bg-gradient-to-r from-yellow-600 to-yellow-400 text-black rounded-lg p-6 mb-8 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl glass-effect">
                     <div className="text-center">
                         <h3 className="text-2xl font-semibold mb-2 animate-fade-in-down"><FaGraduationCap /> Seva Sadan Higher Secondary School</h3>
@@ -60,74 +59,31 @@ const Aboutpage = () => {
                 <div className="relative bg-gray-800 p-6 rounded-lg shadow-lg mb-8 glass-effect">
                     <h3 className="text-3xl font-semibold text-yellow-400 mb-4 text-center">My Journey</h3>
                     <div className="relative h-100 parallax">
+                        {/* Existing timeline content */}
                         <svg viewBox="0 0 700 300" className="w-full h-full">
-                            {/* Static Line Path */}
                             <line x1="50" y1="150" x2="650" y2="150" stroke="yellow" strokeWidth="6" />
-
-                            {/* Year Markers */}
                             <circle cx="50" cy="150" r="8" fill="yellow" />
                             <circle cx="200" cy="150" r="8" fill="yellow" />
                             <circle cx="350" cy="150" r="8" fill="yellow" />
                             <circle cx="650" cy="150" r="6" fill="yellow" />
-
-                            {/* Year Labels - Above Markers */}
                             <text x="50" y="120" fill="white" fontSize="20" textAnchor="middle">2023</text>
                             <text x="200" y="120" fill="white" fontSize="20" textAnchor="middle">2024</text>
                             <text x="350" y="120" fill="white" fontSize="20" textAnchor="middle">2025</text>
                             <text x="650" y="120" fill="white" fontSize="20" textAnchor="middle">2027</text>
-
-                            {/* Icons & Images */}
-                            {/* Walking Animation at 2023 */}
-                            <circle cx="50" cy="125" r="15" fill="blue">
-                                <animate
-                                    attributeName="cx"
-                                    from="50"
-                                    to="200"
-                                    dur="2s"
-                                    repeatCount="indefinite"
-                                />
-                            </circle>
-
-                            {/* Standing Person Below 2024 with 2nd Year Label */}
-                            <image
-                                x="180"
-                                y="160"
-                                width="40"
-                                height="60"
-                                href="src/assets/rohan1.jpg"
-                                className="rounded-full"
-                            />
-                            <text x="200" y="230" fill="yellow" fontSize="18" textAnchor="middle">
-                                2nd Year pursuing
-                            </text>
-
-                            {/* 1st Year Completed Icon Below 2023 */}
-                            <image
-                                x="40"
-                                y="160"
-                                width="40"
-                                height="40"
-                                href=""
-                                className="rounded-full"
-                            />
-                            <text x="100" y="150" fill="green" fontSize="19" textAnchor="middle">
-                                1st Year Completed
-                            </text>
-
-                            {/* Adding Icons for HTML, CSS, JS, React */}
-                            <text x="200" y="90" fill="yellow" fontSize="24" textAnchor="middle">
-                                <FaHtml5 />
-                            </text>
-                            <text x="350" y="90" fill="yellow" fontSize="24" textAnchor="middle">
-                                <FaCss3Alt />
-                            </text>
-                            <text x="500" y="90" fill="yellow" fontSize="24" textAnchor="middle">
-                                <FaJsSquare />
-                            </text>
-                            <text x="650" y="90" fill="yellow" fontSize="24" textAnchor="middle">
-                                <FaReact />
-                            </text>
                         </svg>
+                    </div>
+
+                    {/* New Institute and Location Section */}
+                    <div className="mt-6 flex items-center justify-center">
+                        <span className="mr-2 text-yellow-400 text-2xl">📍</span>
+                        <a
+                            href="https://goo.gl/maps/xyz" // Replace 'xyz' with the actual Google Maps link
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-yellow-300 text-lg hover:underline"
+                        >
+                            Dadaji Institute of Technology and Science, Khandwa
+                        </a>
                     </div>
 
                     {/* Timeline Description */}
