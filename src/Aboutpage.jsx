@@ -15,7 +15,7 @@ const Aboutpage = () => {
                 {/* Personal Details Section */}
                 <div className="flex items-center justify-center mb-8">
                     <img
-                        src="src/assets/f26aab15-0aed-4b3c-88e4-09512bcf5ef8.jpg"// Your image path
+                        src="src/assets/rohan1.jpg"// Your image path
                         alt="Rohan"
                         className="w-32 h-32 rounded-full border-4 border-yellow-400 shadow-lg mr-6"
                     />
@@ -38,7 +38,7 @@ const Aboutpage = () => {
                             Located in Burhanpur, this school laid the foundation of my academic journey.
                         </p>
                         <img
-                            src="src/assets/unnamed.jpg"
+                            src="src/assets/sevasadan1.jpg"
                             alt="Seva Sadan Logo"
                             className="w-16 h-16 mx-auto mt-4 rounded-full shadow-lg"
                         />

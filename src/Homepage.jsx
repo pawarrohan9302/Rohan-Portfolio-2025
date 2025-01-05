@@ -76,7 +76,7 @@ const Homepage = () => {
         className="relative w-full h-screen bg-cover bg-center flex flex-col justify-center items-center"
         style={{
           backgroundImage:
-            "url('src/assets/9e1c9a02-2065-41b6-8cd1-e2875092330b.jpg')", // Replace with your hero image
+            "url('src/assets/rohan2.jpg')", // Replace with your hero image
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
