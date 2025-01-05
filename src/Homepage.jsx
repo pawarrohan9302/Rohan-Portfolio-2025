@@ -30,7 +30,7 @@ const Homepage = () => {
       <div
         className="relative w-full h-screen bg-cover bg-center flex flex-col justify-center items-center"
         style={{
-          backgroundImage: "url('/rohan2.jpg')", // Update to point to public folder
+          backgroundImage: "url('src/assets/rohan2.jpg')", // Update to point to public folder
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -64,44 +64,6 @@ const Homepage = () => {
         </div>
       </div>
 
-      {/* Robot Section with Animation */}
-      <section id="about" className="py-16 bg-gray-800">
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.h2
-            className="text-4xl font-bold text-teal-400 mb-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            This is Rohan
-          </motion.h2>
-          <div className="flex justify-center items-center space-x-10">
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, rotate: 0 }}
-              animate={{ opacity: 1, rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
-            >
-              <img
-                src="/robot-image.jpg" // Replace with your AI robot image in the public folder
-                alt="AI Robot"
-                className="w-64 h-64 object-cover rounded-full border-4 border-teal-500 glow-effect"
-              />
-            </motion.div>
-            <motion.div
-              className="text-white text-xl sm:text-2xl font-semibold"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-            >
-              <p className="tracking-widest leading-relaxed">
-                I am an AI assistant powered by advanced technology to help you build
-                amazing digital experiences. Let’s work together to make your vision a reality!
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* Skills Section */}
       <section className="py-16 bg-gray-800">
