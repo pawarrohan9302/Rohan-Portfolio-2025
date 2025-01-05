@@ -1,11 +1,13 @@
 import React, { useRef } from 'react';
 import html2pdf from 'html2pdf.js';
+// Importing icons
 import { FaGraduationCap, FaBriefcase, FaCode, FaPython, FaChartLine, FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Aboutpage = () => {
     const pageRef = useRef();
 
     const handleDownloadResume = () => {
+        // This triggers the download of the content inside the pageRef as a PDF
         const element = pageRef.current;
         html2pdf()
             .from(element)
@@ -15,25 +17,10 @@ const Aboutpage = () => {
     return (
         <div ref={pageRef} className="min-h-screen bg-gradient-to-r from-blue-900 via-purple-800 to-pink-600 text-white p-8">
             <div className="max-w-4xl mx-auto bg-black bg-opacity-70 rounded-lg p-10 shadow-xl glass-effect">
-
                 {/* Introduction Section */}
                 <div className="text-center mb-8">
                     <h2 className="text-5xl font-extrabold text-yellow-300 mb-4 neon-text animate-bounce">Hi, I'm Rohan!</h2>
-                    <p className="text-2xl text-gray-300 mb-4">
-                        <span className="flex justify-center items-center gap-2">
-                            <FaGraduationCap className="text-yellow-400" /> Second-year Data Science Student
-                        </span>
-                    </p>
-                    <p className="text-2xl text-gray-300 mb-4">
-                        <span className="flex justify-center items-center gap-2">
-                            <FaPython className="text-green-500" /> Innovator
-                        </span>
-                    </p>
-                    <p className="text-2xl text-gray-300 mb-4">
-                        <span className="flex justify-center items-center gap-2">
-                            <FaCode className="text-blue-400" /> Problem Solver
-                        </span>
-                    </p>
+                    <p className="text-2xl text-gray-300">Second-year Data Science Student | Innovator | Problem Solver</p>
                 </div>
 
                 {/* Personal Details Section */}
@@ -53,7 +40,7 @@ const Aboutpage = () => {
                     </div>
                 </div>
 
-                {/* Education Section */}
+                {/* Education Section: Seva Sadan */}
                 <div className="bg-gradient-to-r from-yellow-600 to-yellow-400 text-black rounded-lg p-6 mb-8 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl glass-effect">
                     <div className="text-center">
                         <h3 className="text-2xl font-semibold mb-2 animate-fade-in-down"><FaGraduationCap /> Seva Sadan Higher Secondary School</h3>
@@ -74,15 +61,23 @@ const Aboutpage = () => {
                     <h3 className="text-3xl font-semibold text-yellow-400 mb-4 text-center">My Journey</h3>
                     <div className="relative h-100 parallax">
                         <svg viewBox="0 0 700 300" className="w-full h-full">
+                            {/* Static Line Path */}
                             <line x1="50" y1="150" x2="650" y2="150" stroke="yellow" strokeWidth="6" />
+
+                            {/* Year Markers */}
                             <circle cx="50" cy="150" r="8" fill="yellow" />
                             <circle cx="200" cy="150" r="8" fill="yellow" />
                             <circle cx="350" cy="150" r="8" fill="yellow" />
                             <circle cx="650" cy="150" r="6" fill="yellow" />
+
+                            {/* Year Labels - Above Markers */}
                             <text x="50" y="120" fill="white" fontSize="20" textAnchor="middle">2023</text>
                             <text x="200" y="120" fill="white" fontSize="20" textAnchor="middle">2024</text>
                             <text x="350" y="120" fill="white" fontSize="20" textAnchor="middle">2025</text>
                             <text x="650" y="120" fill="white" fontSize="20" textAnchor="middle">2027</text>
+
+                            {/* Icons & Images */}
+                            {/* Walking Animation at 2023 */}
                             <circle cx="50" cy="125" r="15" fill="blue">
                                 <animate
                                     attributeName="cx"
@@ -92,17 +87,21 @@ const Aboutpage = () => {
                                     repeatCount="indefinite"
                                 />
                             </circle>
+
+                            {/* Standing Person Below 2024 with 2nd Year Label */}
                             <image
                                 x="180"
                                 y="160"
                                 width="40"
                                 height="60"
-                                href="public/rohan1.jpg"
+                                href="src/assets/rohan1.jpg"
                                 className="rounded-full"
                             />
                             <text x="200" y="230" fill="yellow" fontSize="18" textAnchor="middle">
                                 2nd Year pursuing
                             </text>
+
+                            {/* 1st Year Completed Icon Below 2023 */}
                             <image
                                 x="40"
                                 y="160"
@@ -114,6 +113,8 @@ const Aboutpage = () => {
                             <text x="100" y="150" fill="green" fontSize="19" textAnchor="middle">
                                 1st Year Completed
                             </text>
+
+                            {/* Adding Icons for HTML, CSS, JS, React */}
                             <text x="200" y="90" fill="yellow" fontSize="24" textAnchor="middle">
                                 <FaHtml5 />
                             </text>
@@ -172,14 +173,12 @@ const Aboutpage = () => {
 
                 {/* Resume Download */}
                 <div className="text-center">
-                    <a
-                        href="/path/to/your/resume.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={handleDownloadResume}
                         className="inline-block px-6 py-2 mt-4 text-lg text-white bg-yellow-400 hover:bg-yellow-500 rounded-lg shadow-lg"
                     >
-                        Download Resume
-                    </a>
+                        Download Resume as PDF
+                    </button>
                 </div>
             </div>
         </div>
