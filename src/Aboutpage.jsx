@@ -1,139 +1,231 @@
-import React, { useRef } from 'react';
-import html2pdf from 'html2pdf.js';
-// Importing icons
-import { FaGraduationCap, FaBriefcase, FaCode, FaPython, FaChartLine, FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import React, { useRef, useEffect } from "react";
+import html2pdf from "html2pdf.js";
+import {
+    FaGraduationCap,
+    FaGithub,
+    FaLinkedin,
+    FaTwitter,
+    FaReact,
+    FaPython,
+    FaJsSquare,
+    FaCss3Alt,
+    FaHtml5,
+    FaDatabase,
+    FaChartLine
+} from "react-icons/fa";
+import { SiPandas, SiTensorflow, SiScikitlearn } from "react-icons/si";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const Aboutpage = () => {
+const AboutPage = () => {
     const pageRef = useRef();
+
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out-quart'
+        });
+    }, []);
 
     const handleDownloadResume = () => {
         const element = pageRef.current;
-        html2pdf()
-            .from(element)
-            .save('Aboutpage.pdf');
+        const opt = {
+            margin: 10,
+            filename: 'Rohan_Resume.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+        html2pdf().set(opt).from(element).save();
     };
 
+    const skills = [
+        { icon: <FaHtml5 className="text-3xl" />, name: "HTML5", color: "#E34F26" },
+        { icon: <FaCss3Alt className="text-3xl" />, name: "CSS3", color: "#1572B6" },
+        { icon: <FaJsSquare className="text-3xl" />, name: "JavaScript", color: "#F7DF1E" },
+        { icon: <FaReact className="text-3xl" />, name: "React.js", color: "#61DAFB" },
+        { icon: <FaPython className="text-3xl" />, name: "Python", color: "#3776AB" },
+        { icon: <FaDatabase className="text-3xl" />, name: "SQL", color: "#00758F" },
+        { icon: <SiPandas className="text-3xl" />, name: "Pandas", color: "#150458" },
+        { icon: <SiTensorflow className="text-3xl" />, name: "TensorFlow", color: "#FF6F00" },
+        { icon: <SiScikitlearn className="text-3xl" />, name: "Scikit-learn", color: "#F7931E" },
+        { icon: <FaChartLine className="text-3xl" />, name: "Power BI", color: "#F2C811" }
+    ];
+
     return (
-        <div ref={pageRef} className="min-h-screen bg-gradient-to-r from-blue-900 via-purple-800 to-pink-600 text-white p-8">
-            <div className="max-w-4xl mx-auto bg-black bg-opacity-70 rounded-lg p-10 shadow-xl glass-effect">
-                {/* Introduction Section */}
-                <div className="text-center mb-8">
-                    <h2 className="text-5xl font-extrabold text-yellow-300 mb-4 neon-text animate-bounce">Hi, I'm Rohan!</h2>
-                    <p className="text-2xl text-gray-300">Second-year Data Science Student | Innovator | Problem Solver</p>
+        <div
+            ref={pageRef}
+            className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white p-6 flex flex-col items-center font-sans"
+        >
+            <div className="max-w-4xl w-full bg-gray-800 bg-opacity-90 rounded-xl p-8 md:p-10 shadow-2xl border border-gray-700 hover:border-cyan-400 transition-all duration-300">
+                {/* Header Section */}
+                <div
+                    className="text-center mb-10"
+                    data-aos="fade-down"
+                    data-aos-delay="100"
+                >
+                    <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-teal-400 mb-4">
+                        Hi, I'm Rohan!
+                    </h2>
+                    <p className="text-xl text-gray-300 mb-2">
+                        Data Science Student | Full Stack Developer | AI Enthusiast
+                    </p>
+                    <div className="w-20 h-1 bg-cyan-400 mx-auto mt-4 rounded-full"></div>
                 </div>
 
-                {/* Personal Details Section */}
-                <div className="flex items-center justify-center mb-8">
-                    <img
-                        src="src/assets/rohan1.jpg" // Your image path
-                        alt="Rohan"
-                        className="w-32 h-32 rounded-full border-4 border-yellow-400 shadow-lg mr-6 hover:scale-110 transform transition-transform duration-300"
-                    />
-                    <div className="text-center">
-                        <p className="text-xl text-gray-300 mb-4">
-                            I'm Rohan, a second-year Data Science student at Shri Dadaji Institute of Technology and Science, Khandwa.
-                        </p>
-                        <p className="text-2xl font-bold text-yellow-400 hover:underline animate-pulse">
-                            I come from Burhanpur, a city known for its rich cultural history.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Education Section */}
-                <div className="bg-gradient-to-r from-yellow-600 to-yellow-400 text-black rounded-lg p-6 mb-8 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl glass-effect">
-                    <div className="text-center">
-                        <h3 className="text-2xl font-semibold mb-2 animate-fade-in-down"><FaGraduationCap /> Seva Sadan Higher Secondary School</h3>
-                        <p className="text-lg">Completed 12th Grade with Excellence</p>
-                        <p className="text-sm">
-                            Located in Burhanpur, this school laid the foundation of my academic journey.
-                        </p>
+                {/* Profile Section */}
+                <div
+                    className="flex flex-col md:flex-row items-center mb-12 gap-8"
+                    data-aos="fade-right"
+                    data-aos-delay="200"
+                >
+                    <div className="relative group">
                         <img
-                            src="src/assets/sevasadan1.jpg"
-                            alt="Seva Sadan Logo"
-                            className="w-16 h-16 mx-auto mt-4 rounded-full shadow-lg"
+                            src="/sevasadan1.jpg"
+                            alt="Rohan"
+                            className="w-40 h-40 rounded-full border-4 border-cyan-400 shadow-xl transition-all duration-500 group-hover:scale-105 group-hover:border-teal-400"
                         />
+                        <div className="absolute -inset-2 rounded-full border-2 border-teal-400 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10"></div>
+                    </div>
+                    <div className="text-center md:text-left">
+                        <p className="text-lg md:text-xl text-gray-300 mb-4">
+                            I'm a passionate Data Science student at Shri Dadaji Institute of Technology and Science, Khandwa, with expertise in web development and machine learning.
+                        </p>
+                        <p className="text-lg text-cyan-400 font-medium">
+                            From Burhanpur, bringing cultural richness to technological innovation.
+                        </p>
                     </div>
                 </div>
 
-                {/* My Journey Section */}
-                <div className="relative bg-gray-800 p-6 rounded-lg shadow-lg mb-8 glass-effect">
-                    <h3 className="text-3xl font-semibold text-yellow-400 mb-4 text-center">My Journey</h3>
-                    <div className="relative h-100 parallax">
-                        {/* Existing timeline content */}
-                        <svg viewBox="0 0 700 300" className="w-full h-full">
-                            <line x1="50" y1="150" x2="650" y2="150" stroke="yellow" strokeWidth="6" />
-                            <circle cx="50" cy="150" r="8" fill="yellow" />
-                            <circle cx="200" cy="150" r="8" fill="yellow" />
-                            <circle cx="350" cy="150" r="8" fill="yellow" />
-                            <circle cx="650" cy="150" r="6" fill="yellow" />
-                            <text x="50" y="120" fill="white" fontSize="20" textAnchor="middle">2023</text>
-                            <text x="200" y="120" fill="white" fontSize="20" textAnchor="middle">2024</text>
-                            <text x="350" y="120" fill="white" fontSize="20" textAnchor="middle">2025</text>
-                            <text x="650" y="120" fill="white" fontSize="20" textAnchor="middle">2027</text>
-                        </svg>
+                {/* Education Highlight */}
+                <div
+                    className="bg-gradient-to-r from-cyan-600 to-teal-500 text-white rounded-xl p-6 shadow-lg mb-12 relative overflow-hidden group"
+                    data-aos="fade-up"
+                    data-aos-delay="300"
+                >
+                    <div className="absolute -inset-0.5 bg-white opacity-10 group-hover:opacity-20 blur-md transition-all duration-500"></div>
+                    <div className="relative z-10">
+                        <h3 className="text-2xl font-semibold text-center mb-3">
+                            <FaGraduationCap className="inline mr-3 text-yellow-300" />
+                            Seva Sadan Higher Secondary School
+                        </h3>
+                        <p className="text-lg text-center text-gray-100">
+                            Completed 12th Grade with 85% in Science
+                        </p>
+                        <p className="text-sm text-center text-gray-300 mt-2">
+                            Foundation of my academic journey in Burhanpur (2018-2020)
+                        </p>
                     </div>
+                </div>
 
-                    {/* New Institute and Location Section */}
-                    <div className="mt-6 flex items-center justify-center">
-                        <span className="mr-2 text-yellow-400 text-2xl">📍</span>
-                        <a
-                            href="https://goo.gl/maps/xyz" // Replace 'xyz' with the actual Google Maps link
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-yellow-300 text-lg hover:underline"
-                        >
-                            Dadaji Institute of Technology and Science, Khandwa
-                        </a>
-                    </div>
+                {/* Professional Timeline */}
+                <div
+                    className="mb-12"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                >
+                    <h3 className="text-3xl font-semibold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-teal-400">
+                        My Professional Journey
+                    </h3>
 
-                    {/* Timeline Description */}
-                    <div className="flex justify-between items-center mt-4">
-                        <div className="text-center">
-                            <p className="text-lg text-yellow-400">2023</p>
-                            <p className="text-sm text-gray-300">Started learning <FaHtml5 /> HTML, <FaCss3Alt /> CSS, and Canva</p>
-                            <p className="text-sm text-gray-300">1st Year Completed</p>
-                        </div>
-                        <div className="text-center">
-                            <p className="text-lg text-yellow-400">2024</p>
-                            <p className="text-sm text-gray-300">2nd year learned <FaJsSquare /> JavaScript, <FaReact /> React</p>
-                        </div>
-                        <div className="text-center">
-                            <p className="text-lg text-yellow-400">2025</p>
-                            <p className="text-sm text-gray-300">To be continued...</p>
-                        </div>
-                        <div className="text-center">
-                            <p className="text-lg text-yellow-400">2027</p>
-                            <p className="text-sm text-gray-300">Future Goals!</p>
-                        </div>
+                    <div className="relative border-l-2 border-cyan-400 pl-8 ml-4 space-y-8">
+                        {[
+                            {
+                                year: "2023",
+                                title: "Web Development Foundations",
+                                description: "Mastered HTML, CSS, and JavaScript, building interactive websites and e-commerce platforms.",
+                                aos: "fade-right"
+                            },
+                            {
+                                year: "2024",
+                                title: "Advanced Development Skills",
+                                description: "Learned React, Python, and data science fundamentals for sophisticated applications.",
+                                aos: "fade-left"
+                            },
+                            {
+                                year: "2024",
+                                title: "Founded Vashudhara E-Commerce",
+                                description: "Created a full-featured e-commerce platform blending technical skills with business vision.",
+                                aos: "fade-right"
+                            }
+                        ].map((item, index) => (
+                            <div
+                                key={index}
+                                className="relative"
+                                data-aos={item.aos}
+                                data-aos-delay={500 + (index * 100)}
+                            >
+                                <div className="absolute w-4 h-4 bg-cyan-400 rounded-full -left-10 top-4 border-2 border-gray-800"></div>
+                                <div className="p-6 bg-gray-700 rounded-lg shadow-lg hover:shadow-cyan-400/20 transition-all hover:-translate-y-1">
+                                    <h4 className="text-xl font-semibold text-cyan-400">{item.year} - {item.title}</h4>
+                                    <p className="text-gray-300 mt-2">{item.description}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
                 {/* Skills Section */}
-                <div className="mb-8">
-                    <h3 className="text-3xl font-semibold text-yellow-400 mb-4">Skills</h3>
-                    <ul className="grid grid-cols-2 gap-4 text-lg text-gray-300">
-                        <li className="flex items-center gap-2 hover:text-yellow-300 transition-colors duration-300">
-                            <FaHtml5 className="text-2xl" /> HTML
-                        </li>
-                        <li className="flex items-center gap-2 hover:text-yellow-300 transition-colors duration-300">
-                            <FaCss3Alt className="text-2xl" /> CSS
-                        </li>
-                        <li className="flex items-center gap-2 hover:text-yellow-300 transition-colors duration-300">
-                            <FaJsSquare className="text-2xl" /> JavaScript
-                        </li>
-                        <li className="flex items-center gap-2 hover:text-yellow-300 transition-colors duration-300">
-                            <FaReact className="text-2xl" /> React
-                        </li>
-                    </ul>
+                <div
+                    className="mb-12"
+                    data-aos="fade-up"
+                    data-aos-delay="800"
+                >
+                    <h3 className="text-3xl font-semibold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-teal-400">
+                        Technical Skills
+                    </h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                        {skills.map((skill, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col items-center p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-all hover:scale-105 group"
+                                data-aos="zoom-in"
+                                data-aos-delay={900 + (index * 50)}
+                            >
+                                <div className="mb-2" style={{ color: skill.color }}>
+                                    {skill.icon}
+                                </div>
+                                <span className="text-gray-300 group-hover:text-white transition-colors">
+                                    {skill.name}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Resume Download */}
-                <div className="text-center">
+                {/* Social Links & Download */}
+                <div
+                    className="flex flex-col items-center gap-6"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                >
+                    <div className="flex justify-center gap-6">
+                        {[
+                            { Icon: FaGithub, link: "https://github.com/yourgithub", color: "hover:text-gray-300" },
+                            { Icon: FaLinkedin, link: "https://linkedin.com/in/yourprofile", color: "hover:text-blue-400" },
+                            { Icon: FaTwitter, link: "https://twitter.com/yourtwitter", color: "hover:text-blue-400" },
+                        ].map(({ Icon, link, color }, idx) => (
+                            <a
+                                key={idx}
+                                href={link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`text-3xl text-gray-400 ${color} transition-all hover:scale-110 bg-gray-700 p-3 rounded-full hover:bg-gray-600`}
+                            >
+                                <Icon />
+                            </a>
+                        ))}
+                    </div>
+
                     <button
                         onClick={handleDownloadResume}
-                        className="inline-block px-6 py-2 mt-4 text-lg text-white bg-yellow-400 hover:bg-yellow-500 rounded-lg shadow-lg"
+                        className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-gray-900 font-bold rounded-lg shadow-lg hover:shadow-cyan-400/30 transition-all hover:scale-105 hover:brightness-110 flex items-center gap-2"
                     >
-                        Download Resume as PDF
+                        Download Resume
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -141,4 +233,4 @@ const Aboutpage = () => {
     );
 };
 
-export default Aboutpage;
+export default AboutPage;
